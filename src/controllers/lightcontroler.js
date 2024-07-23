@@ -3,13 +3,13 @@ import lightmodel from "../models/lightmodel.js";
 
 class LightController {
 
-  //Retorna todos os dados de iluminação
+  //Função  que retorna todos os dados de iluminação
   getAllLights(req, res) {
     const lights = LightModel.getAllLights();
     res.json(lights);
   }
   
-  //Retorna os dados de iluminação pelo ID especifico
+  //Função que retorna os dados de iluminação pelo ID especifico
   getLightById(req, res) {
     const id = parseInt(req.params.id, 10);
     const light = LightModel.getLightById(id);
@@ -19,7 +19,7 @@ class LightController {
       res.status(404).json({ error: 'Light not found' });
     }
   }
-  //Adiciona um novo dADO de iluminação
+  //Função que adiciona um novo dADO de iluminação
   addLight(req, res) {
     const { value } = req.body;
     if (value !== undefined) {
@@ -30,13 +30,13 @@ class LightController {
     }
   }
   
-  //Retorna os dados de iluminação msis recentes
+  //Função que retorna os dados de iluminação msis recentes
   getLatestLight(req, res) {
     const light = LightModel.getLatestLight();
     res.json(light);
   }
   
-  //Deleta um dado de iluminação pelo ID
+  //Função que deleta um dado de iluminação pelo ID
   deleteLight(req, res) {
     const id = parseInt(req.params.id, 10);
     const deletedLight = LightModel.deleteLight(id);
